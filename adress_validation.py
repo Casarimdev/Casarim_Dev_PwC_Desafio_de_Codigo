@@ -1,9 +1,9 @@
-# Exercício proposto: 
+# Exercício proposto:
 
 # Um provedor de endereços retorna endereços apenas com ruas concatenadas,
 # nomes e números em uma única string. Nosso próprio sistema, por outro lado,
 # tem campos específicos para armazenar o nome da rua e o número da rua.
-# Portanto, se faz necessário escrever um código simples que processe a 
+# Portanto, se faz necessário escrever um código simples que processe a
 # entrada e retorne esses campos na saída.
 
 # Entrada: string de endereço com os dados concatenados.
@@ -29,9 +29,11 @@ def ConcertAdress():
     cut_phrase = phrase.split(" ")
 
     # Adress right
-    adress_right = {cut_phrase[0], cut_phrase[1]}
+    adress_name = cut_phrase[0]
+    adress_number = cut_phrase[1]
+    adress_right = {adress_name, adress_number}
     print(adress_right)
 
 
-# Call function 
+# Call function
 ConcertAdress()

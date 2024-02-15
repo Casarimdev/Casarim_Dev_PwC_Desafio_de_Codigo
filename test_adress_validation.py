@@ -10,7 +10,7 @@ def split_address(address):
 class TestSplitAddress(unittest.TestCase):
 
     def test_split_address(self):
-        input_address = str(input('Enter your address:'))
+        input_address = str(input('Insira seu endereço:'))
         result = split_address(input_address)
         adress_right = {result[1], result[0]}
         expected = {result[0], result[1]}
@@ -27,7 +27,7 @@ class TestSplitAddress(unittest.TestCase):
         result = split_address(input_address)
         expected = ["Babaçu", "500"]
         self.assertEqual(result, expected)
-    
+
     def test_split_address_another_input2(self):
         input_address = "Cambuí 804B"
         result = split_address(input_address)
