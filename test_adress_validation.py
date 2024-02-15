@@ -22,6 +22,18 @@ class TestSplitAddress(unittest.TestCase):
         expected = ["Miritiba", "339"]
         self.assertEqual(result, expected)
 
+    def test_split_address_another_input1(self):
+        input_address = "Babaçu 500"
+        result = split_address(input_address)
+        expected = ["Babaçu", "500"]
+        self.assertEqual(result, expected)
+    
+    def test_split_address_another_input2(self):
+        input_address = "Cambuí 804B"
+        result = split_address(input_address)
+        expected = ["Cambuí", "804B"]
+        self.assertEqual(result, expected)
+
 
 # If the file is executed directly, run the tests
 if __name__ == '__main__':
