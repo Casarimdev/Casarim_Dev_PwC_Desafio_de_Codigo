@@ -10,36 +10,55 @@
 # Saída: string da rua e string do número da rua.
 
 
-# Simple Cases + Complicated Cases
-# Adress
-def ConcertAdress():
-    # Prompt the user to input an address
-    phrase = input('Insira seu endereço: ')
+# Complete Exercise
+import re
 
-    # Check if the user input is empty
-    if not phrase:
-        print("O endereço não pode estar vazio.")
-        return
 
-    # Split the address into parts
-    parts = phrase.split(" ")
+def ConcertAdress(address):
 
-    # Check if the last part is a number
-    if parts[-1].isdigit() or any(char.isdigit() for char in parts[-1]):
-        # If the last part is a number or contains digits, consider all parts except the last one as the address name
-        address_name = " ".join(parts[:-1])
-        # The final part of the address is the last part
-        address_final = parts[-1]
+    # Check if the address starts with a number
+    if address[0].isdigit():
+        pattern = r'^(?P<numero>\b\d+\b)(?:[,\s]+)?(?P<rua>.+)$'
+
+    # Check if the address contains words like "No", "N°", or "número"
+    elif re.match(r'.*\b(?:No|N°|número)\b', address):
+        pattern = r'^(?P<rua>.+?)(?:[,\s]+(?P<numero>No\s+\d+))'
+
+    # Check if the address contains a number
+    elif re.search(r'\b\d+\b', address):
+        pattern = r'^(?P<rua>[^\d,]+)(?:,\s*)?(?P<numero>\b\d+[A-Za-z]*\s*[A-Za-z]*)?$'
+
+    # If none of the above conditions are met, assume the address starts with a street name followed by a number
     else:
-        # If the last part is not a number, the address name consists of all parts until the second-to-last
-        address_name = " ".join(parts[:-2])
-        # The final part of the address consists of the second-to-last part and the last part
-        address_final = " ".join(parts[-2:])
+        pattern = r'^(?P<rua>[^\d,]+)\s*(?P<numero>\b\d+[A-Za-z]*\s*[A-Za-z]*)$'
 
-    adress_right = {f'{address_name}, {address_final}'}
-    # Print the address name and the final part of the address
-    print(adress_right)
+    # Search for the pattern in the address string
+    match = re.match(pattern, address)
+
+    if match:
+        # Extract the street name and street number
+        street = match.group('rua').strip()
+        number = match.group('numero').strip() if match.group('numero') else ''
+        return {f"{street}, {number}"}
+    else:
+        return "Endereço Inválido. Por favor, tente novamente."
 
 
-# Call function
-ConcertAdress()
+while True:
+    # Ask the user to input an address
+    address = input("Insira deu endereço (ou 'sair' para encerrar): ").strip()
+
+    # Check if the user wants to exit
+    if address.lower() == 'sair':
+        print("Saindo do programa...")
+        break
+
+    # Extract the street name and street number
+    result = ConcertAdress(address)
+
+    # Print the result
+    print(result)
+
+
+# Desafio Finalizado! Acompanhe a evolução e a explicação dos commits acessando a descrição no repositório:
+# https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo

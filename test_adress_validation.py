@@ -1,56 +1,78 @@
 import unittest
+from adress_validation import ConcertAdress
 
 
-# Function that splits the address into two arrays
-def split_address(address):
-    if not address:
-        return None, "O endereço não pode estar vazio"
-    parts = address.split(" ")
-    if parts[-1].isdigit() or any(char.isdigit() for char in parts[-1]):
-        address_name = " ".join(parts[:-1])
-        address_final = parts[-1]
-    else:
-        address_name = " ".join(parts[:-2])
-        address_final = " ".join(parts[-2:])
-    return address_name, address_final
+# If you run this test, the function ConcertAdress will be called along with the tests. So, if you would like to verify the tests results, simply type 'sair' in the terminal that is executing the function.
 
-
-# Test class for the split_address function
-class TestSplitAddress(unittest.TestCase):
+class TestExtrairEndereco(unittest.TestCase):
 
     # Simple Cases
-    def test_split_address_simple(self):
-        input_address = "Miritiba 339"
-        result = split_address(input_address)
-        expected = ("Miritiba", "339")
-        self.assertEqual(result, expected)
+    def test_extrair_endereco_simple(self):
+        address = "Miritiba 339"
+        result = ConcertAdress(address)
+        expeted = {"Miritiba, 339"}
+        self.assertEqual(result, expeted)
 
-    def test_split_address_another_input_simple(self):
-        input_address = "Babaçu 500"
-        result = split_address(input_address)
-        expected = ("Babaçu", "500")
-        self.assertEqual(result, expected)
+    def test_extrair_endereco_another_input_simple(self):
+        address = "Babaçu 500"
+        result = ConcertAdress(address)
+        expeted = {"Babaçu, 500"}
+        self.assertEqual(result, expeted)
 
-    def test_split_address_another_input1_simple(self):
-        input_address = "Cambuí 804B"
-        result = split_address(input_address)
-        expected = ("Cambuí", "804B")
-        self.assertEqual(result, expected)
+    def test_extrair_endereco_another_input1_simple(self):
+        address = "Cambuí 804B"
+        result = ConcertAdress(address)
+        expeted = {"Cambuí, 804B"}
+        self.assertEqual(result, expeted)
 
     # Complicated Cases
-    def test_split_address_complex_valid_input(self):
-        input_address = "Rio Branco 23"
-        result = split_address(input_address)
-        expected = ("Rio Branco", "23")
-        self.assertEqual(result, expected)
+    def test_extrair_endereco_complex_valid_input(self):
+        address = "Rio Branco 23"
+        result = ConcertAdress(address)
+        expeted = {"Rio Branco, 23"}
+        self.assertEqual(result, expeted)
 
-    def test_split_address_complex_valid_input_2(self):
-        input_address = "Quirino dos Santos 23 b"
-        result = split_address(input_address)
-        expected = ("Quirino dos Santos", "23 b")
-        self.assertEqual(result, expected)
+    def test_extrair_endereco_complex_valid_input_2(self):
+        address = "Quirino dos Santos 23 b"
+        result = ConcertAdress(address)
+        expeted = {"Quirino dos Santos, 23 b"}
+        self.assertEqual(result, expeted)
+
+    # Complex Cases
+    def test_extrair_endereco_complex_valid_input_3(self):
+        address = "4, Rue de la République"
+        result = ConcertAdress(address)
+        expeted = {"Rue de la République, 4"}
+        self.assertEqual(result, expeted)
+
+    def test_extrair_endereco_complex_valid_input_4(self):
+        address = "100 Broadway Av"
+        result = ConcertAdress(address)
+        expeted = {"Broadway Av, 100"}
+        self.assertEqual(result, expeted)
+
+    def test_extrair_endereco_complex_valid_input_5(self):
+        address = "Calle Sagasta, 26"
+        result = ConcertAdress(address)
+        expeted = {"Calle Sagasta, 26"}
+        self.assertEqual(result, expeted)
+
+    def test_extrair_endereco_complex_valid_input_6(self):
+        address = "Calle 44 No 1991"
+        result = ConcertAdress(address)
+        expeted = {"Calle 44, No 1991"}
+        self.assertEqual(result, expeted)
+
+    # Variable Cases
+    def test_split_address_variable_check(self):
+        input_address = input("Agora vamos para o teste variável, insira seu endereço: ")
+        result = ConcertAdress(input_address)
+        self.assertIsNotNone(result)
 
 
-# If the file is executed directly, run the tests
 if __name__ == '__main__':
     unittest.main()
+
+
+# Desafio Finalizado! Acompanhe a evolução e a explicação dos commits acessando a descrição no repositório:
+# https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo
