@@ -19,9 +19,9 @@ Para executar os testes automatizados, execute o arquivo `testes_codigo.py`.
 
 Você pode acompanhar a evolução do desafio através dos commits neste repositório. Abaixo estão os links para alguns dos principais commits:
 
-- [Simple Cases - 1](https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo/commit/966c64d2700bd50e3e7a093e23852eb27d07421a)
-- [Simple Cases - 2](https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo/commit/7c9c98b6cb5d846318ee68650d42c599d63d4f20)
-- [Simple Cases - 3](https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo/commit/7a793d2f0a50a3da5eb53bf3db32e50c90a4b17b)
-- [Complicated Cases - 1](https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo/commit/91b159f655b82b25ed67c110447dc75a96978f8a)
-- [Complicated Cases - 2](https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo/commit/b3d401d3d735b01e783c3794eaa4eb3381cac5dd)
-- [Challenge completed](https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo/commit/912b78f94a398250bc869c20329bfa2d70ec76f3)
+- [Simple Cases - 1](https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo/commit/966c64d2700bd50e3e7a093e23852eb27d07421a){:target="_blank"}
+- [Simple Cases - 2](https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo/commit/7c9c98b6cb5d846318ee68650d42c599d63d4f20){:target="_blank"}
+- [Simple Cases - 3](https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo/commit/7a793d2f0a50a3da5eb53bf3db32e50c90a4b17b){:target="_blank"}
+- [Complicated Cases - 1](https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo/commit/91b159f655b82b25ed67c110447dc75a96978f8a){:target="_blank"}
+- [Complicated Cases - 2](https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo/commit/b3d401d3d735b01e783c3794eaa4eb3381cac5dd){:target="_blank"}
+- [Challenge completed](https://github.com/Casarimdev/Casarim_Dev_PwC_Desafio_de_Codigo/commit/912b78f94a398250bc869c20329bfa2d70ec76f3){:target="_blank"}
